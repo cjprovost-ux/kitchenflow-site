@@ -25,7 +25,7 @@
   a{color:inherit}
 
   /* nav */
-  nav{position:sticky; top:0; z-index:50; background:rgba(246,240,230,.82);
+  nav{position:sticky; top:0; z-index:50; background:rgba(238,244,240,.82);
       backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
   .nav-in{display:flex; align-items:center; justify-content:space-between; height:64px}
   .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:700; font-size:22px}
@@ -34,15 +34,15 @@
   .brand b{color:var(--clay)}
   .btn{display:inline-block; background:var(--clay); color:#fff; font-weight:600; text-decoration:none;
        padding:13px 26px; border-radius:999px; border:none; cursor:pointer; font-size:16px;
-       box-shadow:0 6px 18px rgba(198,107,78,.30); transition:transform .15s ease, box-shadow .15s ease}
-  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(198,107,78,.38)}
+       box-shadow:0 6px 18px rgba(74,123,98,.30); transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(74,123,98,.38)}
   .btn.sm{padding:9px 18px; font-size:14px}
   .btn.ghost{background:transparent;color:var(--clay);box-shadow:none;border:1.5px solid var(--clay)}
 
   /* hero */
   header{position:relative; overflow:hidden; padding:84px 0 72px}
   .blob{position:absolute; border-radius:50%; filter:blur(8px); opacity:.5; z-index:0}
-  .b1{width:420px;height:420px;background:radial-gradient(circle,#e7b9a6,transparent 70%);top:-160px;right:-120px}
+  .b1{width:420px;height:420px;background:radial-gradient(circle,#a8d4b8,transparent 70%);top:-160px;right:-120px}
   .b2{width:360px;height:360px;background:radial-gradient(circle,#bcd0b6,transparent 70%);bottom:-160px;left:-120px}
   header .wrap{position:relative; z-index:1}
   .eyebrow{display:inline-block; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
@@ -154,27 +154,26 @@
 <nav>
   <div class="wrap nav-in">
     <div class="brand">
-      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span>
-      KitchenFlow</b>
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span>Kitchen<b>Flow</b>
     </div>
-    <a href="https://payhip.com/b/BLQAt" class="btn sm nav-cta">Get the system</a>
+    <a href="#get" class="btn sm nav-cta">Get the system</a>
   </div>
 </nav>
 
 <header>
   <div class="blob b1"></div><div class="blob b2"></div>
   <div class="wrap">
-    <span class="eyebrow">AI meal planning · works in any AI</span>
+    <span class="eyebrow">Works with any AI</span>
     <h1>Plan the week.<br><span class="accent">Skip the stress.</span></h1>
-    <p class="lede">KitchenFlow turns the AI you already have into a five-minute weekly meal planner. Tell it what's in your fridge — get back the week's dinners and a shopping list of only what you're missing.</p>
+    <p class="lede">KitchenFlow turns the AI you already have into a five-minute weekly meal planner. Tell it what's in your fridge — get back dinners for the week and a shopping list of only what you're missing.</p>
     <div class="cta-row">
-      <a href="https://payhip.com/b/BLQAt" class="btn">Get KitchenFlow — $27</a>
+      <a href="#get" class="btn">Get KitchenFlow — $27</a>
       <span class="price-note">One-time. <b>Instant download.</b> 14-day refund.</span>
     </div>
     <div class="trust">
-      <span><span class="dot"></span> Works with ChatGPT, Claude &amp; Gemini</span>
+      <span><span class="dot"></span> Works with ChatGPT, Claude, Gemini &amp; Manus</span>
       <span><span class="dot"></span> No new app, no subscription</span>
-      <span><span class="dot"></span> Plans around what you already own</span>
+      <span><span class="dot"></span> Plans around what you already have</span>
     </div>
   </div>
 </header>
@@ -193,7 +192,7 @@
       <div class="pcard">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><path d="M5 7h14M9 7V5h6v2M6 7l1 13h10l1-13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Wasted groceries</h3>
-        <p>Food bought without a plan goes soft in the drawer. That's money straight in the trash.</p>
+        <p>Food bought without a plan goes soft in the drawer. That's money straight down the disposal.</p>
       </div>
       <div class="pcard">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M6 6l12 12" stroke-linecap="round"/></svg></div>
@@ -213,17 +212,17 @@
       <div class="step">
         <div class="n">1</div>
         <h3>Build your profile once</h3>
-        <p>Fill in your kitchen, tastes, and favorite meals in the template. It's a document you own and reuse.</p>
+        <p>Fill in your kitchen setup, the foods you love and avoid, your go-to meals, and your usual stores. It's a document you own and reuse — takes about 10 minutes once, then it's done.</p>
       </div>
       <div class="step">
         <div class="n">2</div>
         <h3>Load it into any AI</h3>
-        <p>Drop it into ChatGPT, Claude, or Gemini — or just paste it. No new app to learn.</p>
+        <p>Drop it into ChatGPT, Claude, Gemini, or Manus — or just paste it into any chat AI. No new app to learn.</p>
       </div>
       <div class="step">
         <div class="n">3</div>
         <h3>Run the weekly prompt</h3>
-        <p>Five minutes on Sunday and you've got the week's meals plus a smart shopping list. Done.</p>
+        <p>Five minutes with KitchenFlow and you've got the week planned — meals and shopping list ready to go.</p>
       </div>
     </div>
   </div>
@@ -299,9 +298,9 @@
           <li>Master Profile Template</li>
           <li>Power Prompts Library</li>
           <li>Recipe Vault (Starter Pack)</li>
-          <li>Works in ChatGPT, Claude &amp; Gemini</li>
+          <li>Works with ChatGPT, Claude, Gemini &amp; Manus</li>
           <li><strong>Bonus:</strong> Build-Your-Own AI Assistant guide</li>
-          <li>Free updates as AI tools change</li>
+          <li>Updated as AI tools evolve</li>
         </ul>
         <a href="https://payhip.com/b/BLQAt" class="btn" style="width:100%;text-align:center">Get KitchenFlow now →</a>
         <p class="guarantee">14-day no-questions refund. Instant download.</p>
@@ -311,11 +310,6 @@
           <div class="tag">Optional add-on · $19</div>
           <div class="p">Power Pack</div>
           <p class="d">10 advanced prompts — batch-cook &amp; meal-prep, freezer stash, deep budget, picky-eater adapter and more — plus an expanded recipe vault.</p>
-        </div>
-        <div class="addon up">
-          <div class="tag">Optional upgrade · $47</div>
-          <div class="p">Family &amp; Seasonal Packs</div>
-          <p class="d">Kid-friendly and seasonal prompt packs plus a batch-cook guide. Add it at checkout if you want the full system.</p>
         </div>
       </div>
     </div>
@@ -328,9 +322,9 @@
     <div class="kicker">Questions</div>
     <h2>Good to know.</h2>
     <div class="faq">
-      <div class="q"><button>Do I need to pay for an AI to use this?</button><div class="a"><p>No. KitchenFlow works with the free versions of ChatGPT, Claude, and Gemini. If you already pay for one, it works there too — but it's not required.</p></div></div>
+      <div class="q"><button>Do I need to pay for an AI to use this?</button><div class="a"><p>No. KitchenFlow works with the free versions of ChatGPT, Claude, Gemini, and Manus. If you already pay for one, it works there too — but it's not required.</p></div></div>
       <div class="q"><button>I'm not techy. Is this hard to set up?</button><div class="a"><p>Not at all. If you can copy and paste, you can use KitchenFlow. The Quick-Start Guide walks you through it step by step, and the simplest setup is just pasting your profile into a chat.</p></div></div>
-      <div class="q"><button>Which AI should I use it with?</button><div class="a"><p>Whichever you already like. The kit includes setup steps for ChatGPT, Claude, and Gemini — and a simple paste-it-anywhere method for any other AI. Because you keep your own profile, you can switch tools anytime.</p></div></div>
+      <div class="q"><button>Which AI should I use it with?</button><div class="a"><p>Whichever you already like. The kit includes setup steps for ChatGPT, Claude, Gemini, and Manus — and a simple paste-it-anywhere method for any other AI. Because you keep your own profile, you can switch anytime. Not sure which to use? <a href="https://getkitchenflow.com/resources/" style="color:var(--clay);">Visit our AI resources page</a> to find and sign up for the one that's right for you.</p></div></div>
       <div class="q"><button>What exactly do I get, and how?</button><div class="a"><p>A digital kit you download instantly after purchase: the setup guide, the Master Profile template, the prompt library, and the recipe vault. No physical product ships.</p></div></div>
       <div class="q"><button>What if it's not for me?</button><div class="a"><p>You're covered by a 14-day, no-questions-asked refund. If KitchenFlow doesn't make your week easier, just email and we'll refund you.</p></div></div>
     </div>
@@ -341,8 +335,8 @@
 <section class="final">
   <div class="wrap">
     <h2>Stop deciding what's for dinner.</h2>
-    <p class="sub">Set it up once this weekend. Get every weeknight a little quieter.</p>
-    <a href="https://payhip.com/b/BLQAt" class="btn">Get KitchenFlow — $27</a>
+    <p class="sub">Set it up once and enjoy a calmer week.</p>
+    <a href="#get" class="btn">Get KitchenFlow — $27</a>
   </div>
 </section>
 
@@ -351,7 +345,7 @@
     <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span>Kitchen<b style="color:var(--clay)">Flow</b></div>
     Plan the week. Skip the stress.<br>
     Questions? <a href="mailto:support@getkitchenflow.com" style="color:var(--muted);">support@getkitchenflow.com</a><br>
-    © <span id="yr"></span> KitchenFlow · <a href="https://payhip.com/b/BLQAt">Get the system</a>
+    © <span id="yr"></span> KitchenFlow · <a href="#get">Get the system</a>
   </div>
 </footer>
 
