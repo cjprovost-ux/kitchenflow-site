@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KitchenFlow — Plan the week. Skip the stress.</title>
+<link rel="canonical" href="https://getkitchenflow.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#4A7B62; --clay-dk:#3A6550; --esp:#1C2E24; --sage:#5A8A72; --sage2:#6E9E82;
+    --honey:#C9A84C; --cream:#EEF4F0; --cream2:#F5FAF7; --line:#C8DDD4; --muted:#5A7A68;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Hanken Grotesk',sans-serif; color:var(--esp); background:var(--cream);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif; line-height:1.1; font-weight:600}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px}
+  .serif{font-family:'Fraunces',serif}
+  a{color:inherit}
+
+  /* nav */
+  nav{position:sticky; top:0; z-index:50; background:rgba(238,244,240,.82);
+      backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+  .nav-in{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:700; font-size:22px}
+  .mark{width:38px;height:38px;border-radius:11px;background:var(--clay);display:flex;align-items:center;justify-content:center}
+  .mark svg{width:22px;height:22px}
+  .brand b{color:var(--clay)}
+  .btn{display:inline-block; background:var(--clay); color:#fff; font-weight:600; text-decoration:none;
+       padding:13px 26px; border-radius:999px; border:none; cursor:pointer; font-size:16px;
+       box-shadow:0 6px 18px rgba(74,123,98,.30); transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(74,123,98,.38)}
+  .btn.sm{padding:9px 18px; font-size:14px}
+  .btn.ghost{background:transparent;color:var(--clay);box-shadow:none;border:1.5px solid var(--clay)}
+
+  /* hero */
+  header{position:relative; overflow:hidden; padding:84px 0 72px}
+  .blob{position:absolute; border-radius:50%; filter:blur(8px); opacity:.5; z-index:0}
+  .b1{width:420px;height:420px;background:radial-gradient(circle,#a8d4b8,transparent 70%);top:-160px;right:-120px}
+  .b2{width:360px;height:360px;background:radial-gradient(circle,#bcd0b6,transparent 70%);bottom:-160px;left:-120px}
+  header .wrap{position:relative; z-index:1}
+  .eyebrow{display:inline-block; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+           font-size:13px; color:var(--clay); background:#fff; padding:7px 14px; border-radius:999px;
+           border:1px solid var(--line); margin-bottom:22px}
+  h1{font-size:clamp(32px,5.6vw,54px); letter-spacing:-.01em}
+  .hero-promise{font-family:'Fraunces',serif; font-weight:600; color:var(--clay); font-size:clamp(22px,3vw,30px); margin:16px 0 0}
+  .lede{font-size:clamp(18px,2.4vw,22px); color:var(--muted); max-width:620px; margin:20px 0 30px}
+  .cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+  .price-note{font-size:15px; color:var(--muted)}
+  .price-note b{color:var(--esp)}
+  .trust{margin-top:26px; display:flex; gap:22px; flex-wrap:wrap; font-size:14px; color:var(--muted)}
+  .trust span{display:flex; align-items:center; gap:8px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--sage)}
+
+  /* sections */
+  section{padding:72px 0}
+  .kicker{font-weight:700; letter-spacing:.16em; text-transform:uppercase; font-size:13px; color:var(--clay); margin-bottom:12px}
+  h2{font-size:clamp(28px,4vw,42px); max-width:760px}
+  .sub{color:var(--muted); font-size:18px; max-width:620px; margin-top:14px}
+  .alt{background:var(--cream2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .dark{background:var(--esp); color:var(--cream)}
+  .dark h2{color:#fff} .dark .kicker{color:var(--sage2)} .dark .sub{color:#cfc4b8}
+
+  /* problem cards */
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:42px}
+  .pcard{background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px;
+         box-shadow:0 4px 14px rgba(58,46,40,.05)}
+  .pcard .ico{width:52px;height:52px;border-radius:14px;background:var(--cream);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .pcard .ico svg{width:26px;height:26px}
+  .pcard h3{font-size:21px;margin-bottom:8px}
+  .pcard p{color:var(--muted); font-size:15.5px}
+
+  /* split: problem + story */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; margin-top:42px}
+  .problems{display:flex; flex-direction:column; gap:18px}
+  .story-panel{background:var(--cream2); border:1px solid var(--line); border-radius:18px; padding:36px 34px;
+               box-shadow:0 4px 14px rgba(58,46,40,.05); height:100%}
+  .story-tag{display:flex; align-items:center; gap:8px; font-weight:700; font-size:12px; letter-spacing:.1em;
+             text-transform:uppercase; color:var(--sage); margin-bottom:18px}
+  .story-tag svg{width:22px;height:22px}
+  .quote-mark{font-family:'Fraunces',serif; font-size:56px; color:var(--honey); line-height:1; margin-bottom:4px}
+  .story-body{color:var(--muted); font-size:15.5px; line-height:1.65; margin-bottom:14px}
+  .story-pull{font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:21px; color:var(--esp);
+              margin:20px 0; line-height:1.4}
+  .story-close{font-family:'Fraunces',serif; font-weight:600; color:var(--clay); font-size:18px; margin-bottom:18px}
+  .story-attr{color:var(--muted); font-size:14px; font-weight:600}
+
+  /* proof */
+  .proof-hero{margin-top:40px; background:#fff; border:1px solid var(--line); border-radius:18px;
+              overflow:hidden; box-shadow:0 8px 24px rgba(58,46,40,.08)}
+  .browser-bar{display:flex; gap:7px; padding:12px 16px; background:var(--cream2); border-bottom:1px solid var(--line)}
+  .browser-bar span{width:10px;height:10px;border-radius:50%;background:var(--line)}
+  .proof-hero img{display:block; width:100%; height:auto}
+  .proof-cap{text-align:center; color:var(--muted); font-size:14px; margin-top:10px}
+  .proof-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px}
+  .proof-card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px;
+              box-shadow:0 4px 14px rgba(58,46,40,.05)}
+  .proof-card img{display:block; width:100%; height:auto; border-radius:6px}
+
+  /* steps */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:46px}
+  .step .n{font-family:'Fraunces',serif; font-size:46px; font-weight:700; color:var(--clay); line-height:1}
+  .step h3{font-size:21px; margin:10px 0 6px}
+  .step p{color:#cfc4b8; font-size:15.5px}
+
+  /* inside list */
+  .inside{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:42px}
+  .icard{display:flex; gap:18px; background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px 26px}
+  .icard .ico{flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center}
+  .icard .ico svg{width:24px;height:24px}
+  .icard h3{font-size:19px;margin-bottom:4px}
+  .icard p{color:var(--muted); font-size:15px}
+
+  /* who for */
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:42px}
+  .who{border-radius:18px; padding:30px 32px}
+  .who.yes{background:#fff;border:1px solid var(--line)}
+  .who.no{background:transparent;border:1px dashed var(--line)}
+  .who h3{font-size:22px; margin-bottom:16px; display:flex; align-items:center; gap:10px}
+  .who ul{list-style:none}
+  .who li{padding:7px 0 7px 30px; position:relative; color:var(--esp)}
+  .who.no li{color:var(--muted)}
+  .who li::before{position:absolute; left:0; top:7px; font-weight:700}
+  .who.yes li::before{content:"✓"; color:var(--sage)}
+  .who.no li::before{content:"–"; color:var(--muted)}
+
+  /* pricing */
+  .pricing{display:grid; grid-template-columns:1.3fr 1fr; gap:26px; margin-top:46px; align-items:start}
+  .offer{background:#fff; border:2px solid var(--clay); border-radius:22px; padding:38px; position:relative;
+         box-shadow:0 16px 40px rgba(58,46,40,.10)}
+  .badge{position:absolute; top:-14px; left:38px; background:var(--clay); color:#fff; font-weight:700;
+         font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px}
+  .offer .price{font-family:'Fraunces',serif; font-size:64px; font-weight:700; color:var(--esp); line-height:1}
+  .offer .price small{font-size:20px; color:var(--muted); font-weight:400}
+  .offer ul{list-style:none; margin:22px 0 28px}
+  .offer li{padding:8px 0 8px 30px; position:relative}
+  .offer li::before{content:"✓"; position:absolute; left:0; color:var(--clay); font-weight:700}
+  .addons{display:flex; flex-direction:column; gap:18px}
+  .addon{background:var(--cream2); border:1px solid var(--line); border-radius:18px; padding:24px 26px}
+  .addon .tag{font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sage)}
+  .addon.up .tag{color:var(--honey)}
+  .addon .p{font-family:'Fraunces',serif; font-size:30px; font-weight:700; margin:4px 0 6px}
+  .addon p.d{color:var(--muted); font-size:15px}
+  .guarantee{margin-top:28px; text-align:center; color:var(--muted); font-size:15px}
+
+  /* faq */
+  .faq{margin-top:38px; max-width:820px}
+  .q{border-bottom:1px solid var(--line)}
+  .q button{width:100%; background:none; border:none; text-align:left; cursor:pointer;
+            font-family:'Fraunces',serif; font-size:20px; font-weight:600; color:var(--esp);
+            padding:22px 40px 22px 0; position:relative}
+  .q button::after{content:"+"; position:absolute; right:6px; top:18px; font-size:26px; color:var(--clay); font-family:'Hanken Grotesk'}
+  .q.open button::after{content:"–"}
+  .q .a{max-height:0; overflow:hidden; transition:max-height .3s ease; color:var(--muted); font-size:16px}
+  .q.open .a{max-height:320px}
+  .q .a p{padding:0 0 22px}
+
+  /* final cta */
+  .final{text-align:center}
+  .final h2{margin:0 auto}
+  .final .sub{margin:14px auto 30px}
+
+  footer{padding:40px 0; border-top:1px solid var(--line); color:var(--muted); font-size:14px; text-align:center}
+  footer .brand{justify-content:center; font-size:18px; margin-bottom:10px}
+
+  @media(max-width:820px){
+    .grid3,.steps,.inside,.two,.pricing,.split,.proof-grid{grid-template-columns:1fr}
+    section{padding:56px 0}
+    .nav-cta{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span>Kitchen<b>Flow</b>
+    </div>
+    <a href="#get" class="btn sm nav-cta">Get the system</a>
+  </div>
+</nav>
+
+<header>
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <h1>Tired of having the same<br>dinner conversation every night?</h1>
+    <p class="hero-promise">Plan the week. Skip the stress.</p>
+    <p class="lede">KitchenFlow turns the AI you already have into a five-minute weekly meal planner. Tell it what's in your fridge — get back dinners for the week and a shopping list of only what you're missing.</p>
+    <div class="cta-row">
+      <a href="#get" class="btn">Get KitchenFlow — $27</a>
+      <span class="price-note">One-time. <b>Instant download.</b> 14-day refund.</span>
+    </div>
+    <div class="trust">
+      <span><span class="dot"></span> Works with ChatGPT, Claude, Gemini &amp; Manus</span>
+      <span><span class="dot"></span> No new app, no subscription</span>
+      <span><span class="dot"></span> Plans around what you already have</span>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM + STORY -->
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="kicker">Sound familiar?</div>
+        <h2>The nightly dinner scramble is exhausting — and expensive.</h2>
+        <div class="problems">
+          <div class="pcard">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
+            <h3>The 5pm panic</h3>
+            <p>“What's for dinner?” — answered from scratch, every single night, when you're already tired.</p>
+          </div>
+          <div class="pcard">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><path d="M5 7h14M9 7V5h6v2M6 7l1 13h10l1-13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Wasted groceries</h3>
+            <p>Food bought without a plan goes soft in the drawer. That's money straight down the disposal.</p>
+          </div>
+          <div class="pcard">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M6 6l12 12" stroke-linecap="round"/></svg></div>
+            <h3>Apps that don't stick</h3>
+            <p>Meal-planning apps and subscriptions become one more thing to manage — then abandon.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="story-panel">
+          <div class="story-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="16" height="9" rx="1.5"/>
+              <path d="M18 10h3l1 2v4h-4"/>
+              <rect x="5" y="9.5" width="4" height="3.5" rx="0.5"/>
+              <circle cx="7" cy="18" r="1.5" fill="#4A7B62" stroke="none"/>
+              <circle cx="19" cy="18" r="1.5" fill="#4A7B62" stroke="none"/>
+            </svg>
+            Why I built this
+          </div>
+          <div class="quote-mark">&ldquo;</div>
+          <p class="story-body">My husband and I were traveling full-time in an RV — limited storage, limited grocery options, no room for food that went to waste.</p>
+          <p class="story-body">Every week looked the same: stare at what we had, realize we were missing something, make another grocery run, and still end up eating grilled cheese because neither of us had the energy to figure out dinner.</p>
+          <p class="story-body">ChatGPT helped — until I realized I was explaining my kitchen, my preferences, and what we had on hand from scratch every single time.</p>
+          <p class="story-pull">I didn't need another recipe.<br>I needed a system that remembered.</p>
+          <p class="story-close">That system became KitchenFlow.</p>
+          <p class="story-attr">— Cheryl, founder of KitchenFlow</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>A five-minute habit, not a second job.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Build your profile once</h3>
+        <p>Fill in your kitchen setup, the foods you love and avoid, your go-to meals, and your usual stores. It's a document you own and reuse — takes about 10 minutes once, then it's done.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Load it into any AI</h3>
+        <p>Drop it into ChatGPT, Claude, Gemini, or Manus — or just paste it into any chat AI. No new app to learn.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Run the weekly prompt</h3>
+        <p>Five minutes with KitchenFlow and you've got the week planned — meals and shopping list ready to go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section>
+  <div class="wrap">
+    <div class="kicker">What you get</div>
+    <h2>A complete, done-for-you kit.</h2>
+    <p class="sub">Four pieces that work together — set up in minutes, useful for years.</p>
+    <div class="inside">
+      <div class="icard">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><path d="M4 5h7v15H4zM20 5h-7v15h7z" stroke-linejoin="round"/></svg></div>
+        <div><h3>Quick-Start &amp; Setup Guide</h3><p>How the system works, plus step-by-step setup for every major AI.</p></div>
+      </div>
+      <div class="icard">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="10" cy="8" r="3"/><path d="M4 19c0-3 3-5 6-5M15 15l5-5 1 1-5 5-1.5.5z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h3>Master Profile Template</h3><p>The fill-once document that makes any AI feel like it knows your kitchen.</p></div>
+      </div>
+      <div class="icard">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="5" cy="7" r="1.4" fill="#4A7B62"/><circle cx="5" cy="12" r="1.4" fill="#4A7B62"/><circle cx="5" cy="17" r="1.4" fill="#4A7B62"/><path d="M9 7h11M9 12h11M9 17h11" stroke-linecap="round"/></svg></div>
+        <div><h3>Power Prompts Library</h3><p>Copy-paste prompts for weekly plans, shopping lists, using up leftovers, and more.</p></div>
+      </div>
+      <div class="icard">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><path d="M7 3v8M7 11a2 2 0 0 0 2-2V3M17 3c-1.5 0-2.5 2-2.5 4.5S15.5 12 17 12v9M7 11v10" stroke-linecap="round"/></svg></div>
+        <div><h3>Recipe Vault (Starter Pack)</h3><p>Simple recipes already in KitchenFlow format, plus a blank card to add your own.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section>
+  <div class="wrap">
+    <div class="kicker">See it for yourself</div>
+    <h2>Not a vague promise — here's the actual kit.</h2>
+    <p class="sub">A real KitchenFlow prompt running in ChatGPT, and real pages straight from the download.</p>
+
+    <div class="proof-hero">
+      <div class="browser-bar"><span></span><span></span><span></span></div>
+      <img src="images/proof-chatgpt.png" alt="A KitchenFlow weekly planning prompt and AI response in ChatGPT" loading="lazy">
+    </div>
+    <p class="proof-cap">One real prompt — a full week planned around what's already on hand.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <img src="images/proof-master-profile.png" alt="KitchenFlow Master Profile template page" loading="lazy">
+        <p class="proof-cap">Master Profile Template</p>
+      </div>
+      <div class="proof-card">
+        <img src="images/proof-power-prompts.png" alt="KitchenFlow Power Prompts Library page" loading="lazy">
+        <p class="proof-cap">Power Prompts Library</p>
+      </div>
+      <div class="proof-card">
+        <img src="images/proof-recipe-vault.png" alt="KitchenFlow Recipe Vault recipe card" loading="lazy">
+        <p class="proof-cap">Recipe Vault</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO FOR -->
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Is it for you?</div>
+    <h2>Built for busy households — not foodie hobbyists.</h2>
+    <div class="two">
+      <div class="who yes">
+        <h3>You'll love it if…</h3>
+        <ul>
+          <li>You dread the daily “what's for dinner?” question</li>
+          <li>You waste food because there's no plan</li>
+          <li>You want to shop once and be done</li>
+          <li>You already use (or want to start using) AI</li>
+          <li>You want less stress, not a new hobby</li>
+        </ul>
+      </div>
+      <div class="who no">
+        <h3>Maybe skip it if…</h3>
+        <ul>
+          <li>You love spending hours planning elaborate menus</li>
+          <li>You want a rigid, one-size-fits-all diet plan</li>
+          <li>You're looking for a calorie-tracking app</li>
+          <li>You'd rather not touch AI at all</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="get">
+  <div class="wrap">
+    <div class="kicker">Get started</div>
+    <h2>One small price. Your evenings back.</h2>
+    <div class="pricing">
+      <div class="offer">
+        <span class="badge">The Core Kit</span>
+        <div class="price">$27<small> one-time</small></div>
+        <ul>
+          <li>Quick-Start &amp; Setup Guide</li>
+          <li>Master Profile Template</li>
+          <li>Power Prompts Library</li>
+          <li>Recipe Vault (Starter Pack)</li>
+          <li>Works with ChatGPT, Claude, Gemini &amp; Manus</li>
+          <li><strong>Bonus:</strong> Build-Your-Own AI Assistant guide</li>
+          <li>Updated as AI tools evolve</li>
+        </ul>
+        <a href="https://payhip.com/b/BLQAt" class="btn" style="width:100%;text-align:center">Get KitchenFlow now →</a>
+        <p class="guarantee">14-day no-questions refund. Instant download.</p>
+      </div>
+      <div class="addons">
+        <div class="addon">
+          <div class="tag">Optional add-on · $19</div>
+          <div class="p">Power Pack</div>
+          <p class="d">10 advanced prompts — batch-cook &amp; meal-prep, freezer stash, deep budget, picky-eater adapter and more — plus an expanded recipe vault.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Questions</div>
+    <h2>Good to know.</h2>
+    <div class="faq">
+      <div class="q"><button>Do I need to pay for an AI to use this?</button><div class="a"><p>No. KitchenFlow works with the free versions of ChatGPT, Claude, Gemini, and Manus. If you already pay for one, it works there too — but it's not required.</p></div></div>
+      <div class="q"><button>I'm not techy. Is this hard to set up?</button><div class="a"><p>Not at all. If you can copy and paste, you can use KitchenFlow. The Quick-Start Guide walks you through it step by step, and the simplest setup is just pasting your profile into a chat.</p></div></div>
+      <div class="q"><button>Which AI should I use it with?</button><div class="a"><p>Whichever you already like. The kit includes setup steps for ChatGPT, Claude, Gemini, and Manus — and a simple paste-it-anywhere method for any other AI. Because you keep your own profile, you can switch anytime. Not sure which to use? <a href="https://getkitchenflow.com/resources/" style="color:var(--clay);">Visit our AI resources page</a> to find and sign up for the one that's right for you.</p></div></div>
+      <div class="q"><button>What exactly do I get, and how?</button><div class="a"><p>A digital kit you download instantly after purchase: the setup guide, the Master Profile template, the prompt library, and the recipe vault. No physical product ships.</p></div></div>
+      <div class="q"><button>What if it's not for me?</button><div class="a"><p>You're covered by a 14-day, no-questions-asked refund. If KitchenFlow doesn't make your week easier, just email and we'll refund you.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Stop deciding what's for dinner.</h2>
+    <p class="sub">Set it up once and enjoy a calmer week.</p>
+    <a href="#get" class="btn">Get KitchenFlow — $27</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span>Kitchen<b style="color:var(--clay)">Flow</b></div>
+    Plan the week. Skip the stress.<br>
+    Questions? <a href="mailto:support@getkitchenflow.com" style="color:var(--muted);">support@getkitchenflow.com</a><br>
+    © <span id="yr"></span> KitchenFlow · <a href="#get">Get the system</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('.q button').forEach(b=>{
+    b.addEventListener('click',()=>{ b.parentElement.classList.toggle('open'); });
+  });
+</script>
+</body>
+</html>
