@@ -6,8 +6,8 @@
 <title>KitchenFlow — Start Here</title>
 <link rel="canonical" href="https://getkitchenflow.com/start">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --clay:#4A7B62; --clay-dk:#3A6550; --esp:#1C2E24; --sage:#5A8A72; --sage2:#6E9E82;
@@ -23,12 +23,14 @@
   .wrap{max-width:560px; margin:0 auto; padding:0 24px; width:100%}
   a{color:inherit}
 
-  .brand{display:flex; align-items:center; justify-content:center; gap:12px;
+  /* FIXED: gap:0 and margin-right on icon to prevent space between Kitchen and Flow */
+  .brand{display:flex; align-items:center; justify-content:center; gap:0;
          font-family:'Fraunces',serif; font-weight:700; font-size:22px; padding:32px 0 8px}
   .mark{width:38px;height:38px;border-radius:11px;background:var(--clay);
-        display:flex;align-items:center;justify-content:center}
+        display:flex;align-items:center;justify-content:center;margin-right:12px}
+  
   .mark svg{width:22px;height:22px}
-  .brand b{color:var(--clay)}
+  .brand b, .brand-accent{color:var(--clay)}
 
   main{flex:1; display:flex; align-items:center; padding:24px 0 40px}
   .hero{text-align:center}
@@ -65,7 +67,13 @@
 <body>
 
 <div class="brand">
-  <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span>Kitchen<b>Flow</b>
+  <span class="mark" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+      <path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"></path>
+      <rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"></rect>
+      <path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"></path>
+    </svg>
+  </span>Kitchen<b class="brand-accent">Flow</b>
 </div>
 
 <main>
@@ -83,6 +91,8 @@
 
     <p class="or-label">— or try it free first —</p>
     <p class="form-intro">Grab the 5-minute starter prompt. No cost, no card.</p>
+    
+    <!-- MailerLite Form Placeholder - Ensure you keep your MailerLite script in the final file -->
     <div class="ml-embedded" data-form="aQhaI9"></div>
 
     <div class="trust">
@@ -93,18 +103,11 @@
 </main>
 
 <footer>
-  Already own it? <a href="https://getkitchenflow.com/resources/">Find your AI &amp; get set up →</a>
+  Already own it? <a href="/resources/">Find your AI &amp; get set up →</a>
 </footer>
 
-<!-- MailerLite Universal -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2398795');
-</script>
-<!-- End MailerLite Universal -->
+<!-- MailerLite Scripts (Ensure these are present in your actual file) -->
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
 
 </body>
 </html>
