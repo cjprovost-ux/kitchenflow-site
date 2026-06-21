@@ -28,13 +28,10 @@
   nav{position:sticky; top:0; z-index:50; background:rgba(238,244,240,.82);
       backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
   .nav-in{display:flex; align-items:center; justify-content:space-between; height:64px}
-  
-  /* FIXED: Set gap to 0 and use margin on icon to prevent space between Kitchen and Flow */
-  .brand{display:flex; align-items:center; gap:0; font-family:'Fraunces',serif; font-weight:700; font-size:22px; text-decoration:none; color:inherit}
-  .mark{width:38px;height:38px;border-radius:11px;background:var(--clay);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px}
-  
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:700; font-size:22px}
+  .mark{width:38px;height:38px;border-radius:11px;background:var(--clay);display:flex;align-items:center;justify-content:center}
   .mark svg{width:22px;height:22px}
-  .brand b, .brand-accent{color:var(--clay)}
+  .brand b{color:var(--clay)}
   .btn{display:inline-block; background:var(--clay); color:#fff; font-weight:600; text-decoration:none;
        padding:13px 26px; border-radius:999px; border:none; cursor:pointer; font-size:16px;
        box-shadow:0 6px 18px rgba(74,123,98,.30); transition:transform .15s ease, box-shadow .15s ease}
@@ -184,15 +181,9 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a href="/" class="brand">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-          <path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/>
-          <rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/>
-          <path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/>
-        </svg>
-      </span>Kitchen<span class="brand-accent">Flow</span>
-    </a>
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span><span class="brand-text">Kitchen<b>Flow</b></span>
+    </div>
     <a href="#get" class="btn sm nav-cta">Get the system</a>
   </div>
 </nav>
@@ -224,17 +215,17 @@
         <h2>The nightly dinner scramble is exhausting — and expensive.</h2>
         <div class="problems">
           <div class="pcard">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2" stroke-linecap="round"></path></svg></div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
             <h3>The 5pm panic</h3>
             <p>“What's for dinner?” — answered from scratch, every single night, when you're already tired.</p>
           </div>
           <div class="pcard">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><path d="M5 7h14M9 7V5h6v2M6 7l1 13h10l1-13" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><path d="M5 7h14M9 7V5h6v2M6 7l1 13h10l1-13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h3>Wasted groceries</h3>
             <p>Food bought without a plan goes soft in the drawer. That's money straight down the disposal.</p>
           </div>
           <div class="pcard">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M6 6l12 12" stroke-linecap="round"></path></svg></div>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M6 6l12 12" stroke-linecap="round"/></svg></div>
             <h3>Apps that don't stick</h3>
             <p>Meal-planning apps and subscriptions become one more thing to manage — then abandon.</p>
           </div>
@@ -244,15 +235,15 @@
         <div class="story-panel">
           <div class="story-tag">
             <svg viewBox="0 0 24 24" fill="none" stroke="#4A7B62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="16" height="9" rx="1.5"></rect>
-              <path d="M18 10h3l1 2v4h-4"></path>
-              <rect x="5" y="9.5" width="4" height="3.5" rx="0.5"></rect>
-              <circle cx="7" cy="18" r="1.5" fill="#4A7B62" stroke="none"></circle>
-              <circle cx="19" cy="18" r="1.5" fill="#4A7B62" stroke="none"></circle>
+              <rect x="2" y="7" width="16" height="9" rx="1.5"/>
+              <path d="M18 10h3l1 2v4h-4"/>
+              <rect x="5" y="9.5" width="4" height="3.5" rx="0.5"/>
+              <circle cx="7" cy="18" r="1.5" fill="#4A7B62" stroke="none"/>
+              <circle cx="19" cy="18" r="1.5" fill="#4A7B62" stroke="none"/>
             </svg>
             Why I built this
           </div>
-          <div class="quote-mark">“</div>
+          <div class="quote-mark">&ldquo;</div>
           <p class="story-body">My husband and I were traveling full-time in an RV — limited storage, limited grocery options, no room for food that went to waste.</p>
           <p class="story-body">Every week looked the same: stare at what we had, realize we were missing something, make another grocery run, and still end up eating grilled cheese because neither of us had the energy to figure out dinner.</p>
           <p class="story-body">ChatGPT helped — until I realized I was explaining my kitchen, my preferences, and what we had on hand from scratch every single time.</p>
@@ -318,29 +309,29 @@
 </section>
 
 <!-- PROOF -->
-<section class="alt">
+<section>
   <div class="wrap">
-    <div class="kicker">See it for yourself</div>
-    <h2>Not a vague promise — here's the actual kit.</h2>
-    <p class="sub">A real KitchenFlow prompt running in ChatGPT, and real pages straight from the download.</p>
-    
+    <div class="kicker">Sneak peek</div>
+    <h2>Take a look inside.</h2>
+    <p class="sub">A peek at the prompts, pages, and AI conversations you'll be using every week.</p>
+
     <div class="proof-hero">
       <div class="browser-bar"><span></span><span></span><span></span></div>
-      <img src="images/proof-chatgpt.png" alt="A KitchenFlow weekly planning prompt and AI response in ChatGPT">
+      <img src="images/proof-chatgpt.png" alt="A KitchenFlow weekly planning prompt and AI response in ChatGPT" loading="lazy">
     </div>
     <p class="proof-cap">One real prompt — a full week planned around what's already on hand.</p>
 
     <div class="proof-grid">
       <div class="proof-card">
-        <img src="images/proof-master-profile.png" alt="KitchenFlow Master Profile template page">
+        <img src="images/proof-master-profile.png" alt="KitchenFlow Master Profile template page" loading="lazy">
         <p class="proof-cap">Master Profile Template</p>
       </div>
       <div class="proof-card">
-        <img src="images/proof-power-prompts.png" alt="KitchenFlow Power Prompts Library page">
+        <img src="images/proof-power-prompts.png" alt="KitchenFlow Power Prompts Library page" loading="lazy">
         <p class="proof-cap">Power Prompts Library</p>
       </div>
       <div class="proof-card">
-        <img src="images/proof-recipe-vault.png" alt="KitchenFlow Recipe Vault recipe card">
+        <img src="images/proof-recipe-vault.png" alt="KitchenFlow Recipe Vault recipe card" loading="lazy">
         <p class="proof-cap">Recipe Vault</p>
       </div>
     </div>
@@ -348,7 +339,7 @@
 </section>
 
 <!-- WHO FOR -->
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="kicker">Is it for you?</div>
     <h2>Built for busy households — not foodie hobbyists.</h2>
@@ -434,15 +425,7 @@
 
 <footer>
   <div class="wrap">
-    <a href="/" class="brand">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
-          <path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/>
-          <rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/>
-          <path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/>
-        </svg>
-      </span>Kitchen<span class="brand-accent">Flow</span>
-    </a>
+    <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8c2-2 4 2 6 0s4-2 5 0" stroke="#EEF4F0" stroke-width="2" stroke-linecap="round"/><rect x="4" y="12" width="16" height="1.6" rx="0.8" fill="#EEF4F0"/><path d="M6 14h12a6 6 0 0 1-12 0Z" fill="#EEF4F0"/></svg></span><span class="brand-text">Kitchen<b style="color:var(--clay)">Flow</b></span></div>
     Plan the week. Skip the stress.<br>
     Questions? <a href="mailto:support@getkitchenflow.com" style="color:var(--muted);">support@getkitchenflow.com</a><br>
     © <span id="yr"></span> KitchenFlow · <a href="#get">Get the system</a>
